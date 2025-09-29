@@ -11,9 +11,7 @@ from transformers.generation import BaseStreamer
 class AudioStreamerProtocol(Protocol):
     def put(self, audio_chunks: torch.Tensor, sample_indices: torch.Tensor) -> None: ...
 
-    def end(
-        self,
-    ) -> None: ...
+    def end(self, sample_indices: Optional[torch.Tensor] = None) -> None: ...
 
 
 class AudioStreamer(BaseStreamer):
